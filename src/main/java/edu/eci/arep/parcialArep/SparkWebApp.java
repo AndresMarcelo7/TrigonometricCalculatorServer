@@ -12,7 +12,10 @@ public class SparkWebApp {
     public static void main(String[] args) {
         port(getPort());
         get("/",(req,res)-> "Bienvenido al Servidor Lógico del parcial de arep :D");
-        post("/results", (req, res) -> {return results(req, res);});
+        post("/results", (req, res) -> {
+            res.status(200);
+            res.type("application/json");
+            return results(req, res);});
     }
     private static JSONObject results(Request req, Response res) {
         calculatorServices calc = new calculatorServicesImpl();
