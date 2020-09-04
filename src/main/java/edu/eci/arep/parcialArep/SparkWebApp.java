@@ -11,6 +11,7 @@ public class SparkWebApp {
 
     public static void main(String[] args) {
         port(getPort());
+        get("/",(req,res)-> "Bienvenido al Servidor Lógico del parcial de arep :D");
         post("/results", (req, res) -> {return results(req, res);});
     }
     private static JSONObject results(Request req, Response res) {
